@@ -1,17 +1,22 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="DU",
-    version="0.1",
-    packages=find_packages(),
+    name="du-data-understanding",
+    version="0.1.0",
+    packages=find_packages(include=["du", "du.*"]),
     install_requires=[
         "numpy",
         "pandas",
         "matplotlib",
         "seaborn",
-        "scikit-learn"
+        "scikit-learn",
+        "fastapi",
+        "uvicorn",
+        "streamlit",
+        "tensorflow",
     ],
     author="Urvil Patel",
-    description="A custom data science utility package",
-    python_requires=">=3.8",
+    description="Production-ready Data Understanding library",
+    python_requires=">=3.9",
+    entry_points={"console_scripts": ["du=du.cli.main:main"]},
 )
